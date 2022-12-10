@@ -7,6 +7,7 @@ class Equipo(models.Model):
     Mensaje=models.TextField(max_length=300,blank=True,null=True)
     Fecha_ultimo_mantenimiento=models.DateField(blank=True,null=True)
     Fecha_estimada_devolución=models.DateField(blank=True,null=True)
+    Ubicacion=models.CharField(max_length=30, blank=False, null=True)
     EstadoEquipo= (
         ('En Mantenimeinto','En Mantenimiento'),
         ('Habilitado','Habilitado'),
