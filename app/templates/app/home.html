@@ -29,9 +29,10 @@
         </div>
       </nav>
 </header>
-<body id="body">
-    <div>
-        <table class="table">
+<body >
+    <div class="table reponsive">
+        <table class="table table-striped">
+            
             <thead>
                 <tr>
                     <th scope="col">Nº serie</th>
@@ -42,13 +43,24 @@
                 </tr>
             </thead>
             <tbody>
-
+            {%if e%}
+            {%for equip in e%}
             <tr>
+                <td>{{equip.SerialNumber}}</td>
+                <td>{{equip.Nombre}}</td>
+                <td>{{equip.Fecha_ultimo_mantenimiento}}</td>
+                <td>{{equip.Estado}}</td>
+                <td>{{equip.Ubicacion}}</td>
             </tr>
+            {%endfor%}
+            {%else%}
+                <h1>no hay registros de equipos</h1>
+            {%endif%}
             </tbody>
         </table>
     </div>
-    </div>
+</div>  
+
 
 
 
