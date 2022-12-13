@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'app/css/bootstrap.css' %}">
+    <link type="text/css" href="{% static 'app/css/elcss.css' %}" rel="stylesheet">
+</head>
+<header>
+    <nav class="navbar" id="Nav">
+        <div class="container-fluid">
+          <a class="navbar-brand" href=" ">
+            <img src="{% static 'app/img/HOSPITAL-DR-G-FRICKE.jpg' %}" alt="Logo" class="d-inline-block align-text-top" width="40" height="40">
+          </a>
+          <div class="col-md">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="buscar">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+            <div>
+              <ul>
+            <a href="{%url 'admin:index'%} " class="link-light">Iniciar sesion</a></div>
+          </ul>
+        </div>
+        </div>
+      </nav>
+</header>
+<body >
+    <div class="table reponsive">
+        <table class="table table-striped">
+            
+            <thead>
+                <tr>
+                    <th scope="col">Nº serie</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Fecha ultimo mantenimiento</th>
+                    <th scope="col">Condicion</th>
+                    <th scope="col">Ubicacion</th>
+                </tr>
+            </thead>
+            <tbody>
+            {%if e%}
+            {%for equip in e%}
+            <tr>
+                <td>{{equip.SerialNumber}}</td>
+                <td>{{equip.Nombre}}</td>
+                <td>{{equip.Fecha_ultimo_mantenimiento}}</td>
+                <td>{{equip.Estado}}</td>
+                <td>{{equip.Ubicacion}}</td>
+            </tr>
+            {%endfor%}
+            {%else%}
+                <h1>no hay registros de equipos</h1>
+            {%endif%}
+            </tbody>
+        </table>
+    </div>
+</div>  
+
+
+
+
+</body>
+</html>
